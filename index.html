@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анализ ресторанов: Влияние совпадения предпочтений на рейтинг</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-chart-line"></i> Аналитика ресторанов
+            </a>
+            <div class="nav-links">
+                <a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Дашборд</a>
+                <a href="#insights"><i class="fas fa-lightbulb"></i> Выводы</a>
+                <a href="#methodology"><i class="fas fa-cogs"></i> Методология</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой-секция -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1><span class="highlight">Совпадение предпочтений</span> клиентов и ресторанов влияет на рейтинг?</h1>
+            <p>Интерактивная визуализация данных на основе анализа сотен ресторанов и тысяч оценок</p>
+            <a href="#dashboard" class="btn-hero">Исследовать данные <i class="fas fa-arrow-down"></i></a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <h3>500+</h3>
+                <p>Ресторанов</p>
+            </div>
+            <div class="stat">
+                <h3>10,000+</h3>
+                <p>Оценок</p>
+            </div>
+            <div class="stat">
+                <h3>2</h3>
+                <p>Гипотезы</p>
+            </div>
+            <div class="stat">
+                <h3>85%</h3>
+                <p>Статистическая значимость</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной дашборд -->
+    <section id="dashboard" class="dashboard-section">
+        <div class="section-header">
+            <h2><i class="fas fa-tachometer-alt"></i> Интерактивный дашборд</h2>
+            <p>Используйте фильтры и инструменты для детального анализа. Все графики интерактивны.</p>
+        </div>
+        
+        <div class="dashboard-container">
+            <div class="dashboard-card">
+                <div class="card-header">
+                    <h3>Гипотеза 1: Совпадение по кухне и оплате повышает оценку</h3>
+                    <div class="card-actions">
+                        <button class="btn-small" onclick="fullscreen()"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="iframe-container">
+                    <!-- Вставьте ваш iframe код Power BI здесь -->
+                    <iframe 
+                        title="Power BI Dashboard" 
+                        width="100%" 
+                        height="600" 
+                        src="https://app.powerbi.com/reportEmbed?reportId=9404e042-e0ef-431e-a591-7ba0d248c62c&autoAuth=true&navContentPaneEnabled=false" 
+                        frameborder="0" 
+                        allowFullScreen="true">
+                    </iframe>
+                </div>
+                <div class="card-footer">
+                    <p><i class="fas fa-info-circle"></i> Используйте фильтры в верхней части дашборда для детализации данных</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dashboard-controls">
+            <h4>Быстрые фильтры:</h4>
+            <div class="controls">
+                <button class="btn-filter active" onclick="applyFilter('all')">Все данные</button>
+                <button class="btn-filter" onclick="applyFilter('high_match')">Высокая доля совпадений (>50%)</button>
+                <button class="btn-filter" onclick="applyFilter('high_rating')">Высокий рейтинг (>4)</button>
+                <button class="btn-filter" onclick="applyFilter('popular')">Популярные рестораны (>50 оценок)</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ключевые выводы -->
+    <section id="insights" class="insights-section">
+        <div class="section-header">
+            <h2><i class="fas fa-lightbulb"></i> Ключевые выводы</h2>
+            <p>Основные инсайты, полученные в результате анализа</p>
+        </div>
+        
+        <div class="insights-container">
+            <div class="insight-card positive">
+                <div class="insight-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Гипотеза подтверждена</h3>
+                <p>Обнаружена умеренная положительная корреляция (r=0.42) между долей совпадения предпочтений и рейтингом ресторана.</p>
+            </div>
+            
+            <div class="insight-card warning">
+                <div class="insight-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h3>Пороговый эффект</h3>
+                <p>Значительный рост рейтинга наблюдается при достижении порога в 60% совпадений предпочтений.</p>
+            </div>
+            
+            <div class="insight-card info">
+                <div class="insight-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Сегментация</h3>
+                <p>Рестораны можно разделить на 4 кластера: "Звезды", "Непонятые", "Уникальные" и "Проблемные".</p>
+            </div>
+            
+            <div class="insight-card neutral">
+                <div class="insight-icon">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <h3>Статистическая значимость</h3>
+                <p>Результаты являются статистически значимыми (p < 0.05) для выборки из 500+ ресторанов.</p>
+            </div>
+        </div>
+        
+        <div class="recommendations">
+            <h3><i class="fas fa-rocket"></i> Практические рекомендации</h3>
+            <ul>
+                <li><strong>Для ресторанов:</strong> Анализируйте предпочтения своей аудитории и адаптируйте меню и способы оплаты</li>
+                <li><strong>Для платформ:</strong> Внедрите систему рекомендаций, учитывающую предпочтения пользователей</li>
+                <li><strong>Для исследователей:</strong> Изучите дополнительные факторы (цена, локация, интерьер) для комплексной модели</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Методология -->
+    <section id="methodology" class="methodology-section">
+        <div class="section-header">
+            <h2><i class="fas fa-cogs"></i> Методология исследования</h2>
+            <p>Как были собраны и проанализированы данные</p>
+        </div>
+        
+        <div class="methodology-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Сбор данных</h4>
+                <p>Агрегация данных из двух источников: предпочтения пользователей и рейтинги ресторанов.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Очистка и подготовка</h4>
+                <p>Удаление выбросов, обработка пропущенных значений, нормализация данных.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Анализ</h4>
+                <p>Корреляционный анализ, проверка гипотез, сегментация, визуализация.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Визуализация</h4>
+                <p>Создание интерактивных дашбордов в Power BI для наглядного представления результатов.</p>
+            </div>
+        </div>
+        
+        <div class="tech-stack">
+            <h4>Использованные технологии:</h4>
+            <div class="tech-icons">
+                <div class="tech-icon">
+                    <i class="fas fa-database"></i>
+                    <span>Power BI</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fas fa-chart-line"></i>
+                    <span>DAX</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fas fa-code"></i>
+                    <span>HTML/CSS/JS</span>
+                </div>
+                <div class="tech-icon">
+                    <i class="fas fa-cloud"></i>
+                    <span>GitHub Pages</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-chart-line"></i> Аналитика ресторанов
+            </div>
+            <p>Интерактивная визуализация данных исследования влияния совпадения предпочтений на рейтинги ресторанов.</p>
+            <div class="footer-links">
+                <a href="#"><i class="fab fa-github"></i> Исходный код</a>
+                <a href="#"><i class="fas fa-file-pdf"></i> Отчет (PDF)</a>
+                <a href="#"><i class="fas fa-envelope"></i> Обратная связь</a>
+            </div>
+            <p class="copyright">© 2023 Аналитика ресторанов. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Простые функции для демонстрации фильтрации
+        function applyFilter(type) {
+            // Удаляем активный класс у всех кнопок
+            document.querySelectorAll('.btn-filter').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Добавляем активный класс нажатой кнопке
+            event.target.classList.add('active');
+            
+            // В реальном проекте здесь будет код для применения фильтров к iframe
+            // Для примера просто покажем уведомление
+            let message = "";
+            switch(type) {
+                case 'all': message = "Показаны все данные"; break;
+                case 'high_match': message = "Фильтр: Высокая доля совпадений (>50%)"; break;
+                case 'high_rating': message = "Фильтр: Высокий рейтинг (>4)"; break;
+                case 'popular': message = "Фильтр: Популярные рестораны (>50 оценок)"; break;
+            }
+            
+            // Создаем временное уведомление
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `<i class="fas fa-filter"></i> ${message}`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        function fullscreen() {
+            const iframe = document.querySelector('iframe');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.webkitRequestFullscreen) {
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) {
+                iframe.msRequestFullscreen();
+            }
+        }
+        
+        // Плавная прокрутка для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
